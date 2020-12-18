@@ -24,8 +24,9 @@ body{
     width: 100%;
     height: 100px;
 }
-.contact-info h2{
+.contact-info h3{
     margin-bottom: 10%;
+    text-align: center;
 }
 .col-md-9{
     background: #f5821f;;

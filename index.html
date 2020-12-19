@@ -37,6 +37,7 @@
 						$('.loading').fadeOut('fast');
 					},
 					error: function(){
+						document.getElementById('status').innerHTML = "Erro ao enviar email.";
 						$('#myModal').modal('show');
 						$('#meuForm').trigger("reset");
 					}

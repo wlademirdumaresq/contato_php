@@ -10,8 +10,8 @@ O presente projeto faz integração dessa biblioteca com AJAX para permitir sua 
 Para testar esse projeto se é necessário ter instalado em sua maquina:
 
 * Composer  ( Intalação pelo comando no ubuntu ```sudo apt-get install composer```
-* PHP > 5   ( Recomendo o php7 instalação pelo comando no ubuntu ``` sudo apt-get install PHP7.4 ````
-* PHPMailer ( Instalação pelo composer se dá atravez do compando no ubuntu ```composer requer phpmailer / phpmailer ````
+* PHP > 5   ( Recomendo o php7 instalação pelo comando no ubuntu ``` sudo apt-get install PHP7.4 ```
+* PHPMailer ( Instalação pelo composer se dá atravez do compando no ubuntu ```composer requer phpmailer / phpmailer ```
 * PHPcgi
 
 ## Execução

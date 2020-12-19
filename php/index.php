@@ -7,7 +7,7 @@
 	use HPMailer\PHPMailer\Exception;
 
 	$mail = new PHPMailer(true);
-    $arquivo =  $_FILES["anexo"];
+    $arquivo =  $_FILES['anexo'];
 	try {
 	    //Configuração
 	    $mail->isSMTP();
@@ -23,7 +23,7 @@
 	    $mail->addAddress('exemplo@gmail.com'); // email que vai receber dados
 
         //anexos
-//         $mail->AddAttachment($arquivo['tmp_name'], "anexo.jpg"  );
+        $mail->AddAttachment($arquivo['tmp_name'], $arquivo['name']  );
 
 
         // Conteudo

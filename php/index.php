@@ -10,29 +10,38 @@
     $arquivo =  $_FILES["anexo"];
 	try {
 	    //Configuração
-	    $mail->isSMTP();                                           	// Send using SMTP
-	    $mail->Host       = 'smtp.gmail.com';                    	// Set the SMTP server to send through
-	    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-	    $mail->Username   = 'exemplo@exemplo.com';          // SMTP username
-	    $mail->Password   = '';                             // SMTP password
+	    $mail->isSMTP();
+	    $mail->Host       = 'smtp.gmail.com';
+	    $mail->SMTPAuth   = true;
+	    $mail->Username   = 'exemplo@gmail.com';
+	    $mail->Password   = '';
 	    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 	    $mail->Port       = 587;
 
 	    //Recipients
-	    $mail->setFrom('exemplo@exemplo.com',"CORREIRO ELETRONICO"); // email que vai ser usado para envio
-	    $mail->addAddress('exemplo@exemplo.com'); // email que vai receber dados
+	    $mail->setFrom('exemplo@gmail.com',"CORREIRO ELETRONICO"); // email que vai ser usado para envio
+	    $mail->addAddress('exemplo@gmail.com'); // email que vai receber dados
 
         //anexos
-        $mail->AddAttachment($arquivo['tmp_name'], "anexo.jpg"  );
+//         $mail->AddAttachment($arquivo['tmp_name'], "anexo.jpg"  );
 
-	    // Conteudo
+
+        // Conteudo
 	    $mail->isHTML(true);
 	    $mail->Subject = 'Formulario de contato';
 	    $mail->Body    = "O cliente: ".$_POST['fname']." que possui o e-mail: ".$_POST['email']." residente do endereço: ".$_POST['endereco']." fez a seguinte observacao: ".$_POST['observacao'];
 	    $mail->AltBody = "O cliente: ".$_POST['fname']." que possui o e-mail: ".$_POST['email']." residente do endereço: ".$_POST['endereco']." fez a seguinte observacao: ".$_POST['observacao'];
 
-	    $mail->send();
-	    echo 'Mensagem foi enviada';
+        if($mail->Send()) {
+
+            echo  "Email enviado com sucesso";
+
+
+        } else {
+
+            echo  "Email falhou";
+
+        };
 
 	} catch (Exception $e) {
 	    echo "Mensagem não foi enviada. Mailer Error: {$mail->ErrorInfo}";
